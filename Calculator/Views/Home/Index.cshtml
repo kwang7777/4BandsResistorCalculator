@@ -1,0 +1,49 @@
+﻿<h2>4-Band IOhm Resistor Value Calculator</h2>
+<div id="container">
+        @using (@Html.BeginForm("Index", "Home"))
+        {
+            <div class="row">
+                <div class="col-sm-2">
+                    First band color:
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBox("firstBandColor", (string)ViewBag.firstBandColor)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Second band color:
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBox("secondBandColor", (string)ViewBag.secondBandColor)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Third band color:
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBox("thirdBandColor", (string)ViewBag.thirdBandColor)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    Fourth band color:
+                </div>
+                <div class="col-sm-10">
+                    @Html.TextBox("fourthBandColor", (string)ViewBag.fourthBandColor)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <input type="submit" value="Submit" formaction=@Url.Action("Submit") formmethod="post" />
+                </div>
+            </div>
+            <h4>Resistor lowerLimit: @ViewBag.lowerLimit ohms</h4>
+            <h4>Resistor upperLimit: @ViewBag.upperLimit ohms</h4>
+        }
+    </div>
+    @if (@ViewBag.flag == 0)
+    {
+        Response.Write("<script>alert('Required value is missing.')</script>");
+    }
